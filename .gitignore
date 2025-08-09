@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+backend/.env
+backend/.env.*
+
+# Virtual env
+.venv/
+venv/
+
+# Node
+node_modules/
+
+# Models & large assets
+backend/models/
+
+# OS
+.DS_Store
+
+# Logs & temp
+*.log
+/tmp/
+*.wav
+*.aiff
+
