@@ -20,7 +20,9 @@ class Settings(BaseSettings):
     # ASR (faster-whisper)
     asr_model_size: str = Field(default="tiny", env="ASR_MODEL_SIZE")
     asr_compute_type: str = Field(default="int8", env="ASR_COMPUTE_TYPE")
+    # ASR language/task: use translate to force English output; set language None for autodetect
     asr_language: Optional[str] = Field(default=None, env="ASR_LANGUAGE")
+    asr_task: str = Field(default="translate", env="ASR_TASK")
     asr_device: str = Field(default="auto", env="ASR_DEVICE")
     asr_cpu_threads: int = Field(default=4, env="ASR_CPU_THREADS")
 

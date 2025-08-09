@@ -62,8 +62,8 @@ class LLMService:
         client = await self._get_client()
         messages: list[dict[str, str]] = []
         builtin_guard = (
-            "You are a concise assistant. Provide only the final answer. "
-            "Do not include chain-of-thought or analysis. "
+            "You are a concise assistant that must reply in English only. If the user speaks another language, ask briefly for clarification in English. "
+            "Provide only the final answer without chain-of-thought. "
             "Respond ONLY as a compact JSON object with a single key 'final', e.g. {\"final\":\"...\"}. "
             "Return JSON only."
         )

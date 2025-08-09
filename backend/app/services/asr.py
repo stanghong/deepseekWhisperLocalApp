@@ -35,7 +35,7 @@ class ASRService:
                 cpu_threads=self._cpu_threads,
             )
 
-    async def transcribe_audio_file(self, audio_path: Path, timeout_seconds: int, language: Optional[str] = None) -> str:
+    async def transcribe_audio_file(self, audio_path: Path, timeout_seconds: int, language: Optional[str] = None, task: str = "transcribe") -> str:
         """Transcribe an audio file to text.
 
         Args:
@@ -53,7 +53,7 @@ class ASRService:
 
         def _do_transcribe() -> str:
             segments, _ = self._model.transcribe(
-                str(audio_path), language=language, vad_filter=True, beam_size=1, best_of=1
+                str(audio_path), language=language, task=task, vad_filter=True, beam_size=1, best_of=1
             )
             return " ".join(seg.text.strip() for seg in segments).strip()
 

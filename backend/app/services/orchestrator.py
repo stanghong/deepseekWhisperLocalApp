@@ -46,6 +46,7 @@ class Orchestrator:
             audio_path,
             timeout_seconds=self._timeout,
             language=getattr(settings, "asr_language", None),
+            task=getattr(settings, "asr_task", "translate"),
         )
 
         # Build chat history
